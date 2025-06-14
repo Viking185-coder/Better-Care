@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kilagan Medical Clinic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #eee;
+      color: #555;
+    }
+
+    /* Chat Widget Styles */
+    #chatWidget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    #chatHeader {
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #chatMessages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #chatInput {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #chatInput input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+    }
+
+    #chatInput button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    #chatButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Better Care Medical Clinic</h1>
+  <p>Empowering You With Diabetes Awareness</p>
+</header>
+
+<main>
+  <h2>What is Diabetes?</h2>
+  <p>Diabetes is a long-term condition that affects how your body converts food into energy. It occurs when your blood sugar (glucose) is too high. This website offers tips and answers to help manage diabetes.</p>
+</main>
+
+<footer>
+  &copy; 2025 Better Care Medical Clinic | All rights reserved
+</footer>
+
+<!-- Floating Chat Button -->
+<button id="chatButton">💬</button>
+
+<!-- Chat Widget -->
+<div id="chatWidget">
+  <div id="chatHeader">Diabetes Chat</div>
+  <div id="chatMessages">
+    <div><strong>Bot:</strong> Hello! Ask me anything about diabetes symptoms, diet, or how to manage it.</div>
+  </div>
+  <div id="chatInput">
+    <input type="text" id="userInput" placeholder="Type here..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatButton = document.getElementById("chatButton");
+  const chatWidget = document.getElementById("chatWidget");
+  const chatMessages = document.getElementById("chatMessages");
+
+  chatButton.onclick = () => {
+    chatWidget.style.displ
