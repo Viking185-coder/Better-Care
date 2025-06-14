@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Chat Widget - Diabetes Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: #f5f5f5;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    #chat-header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    #chat-input {
+      display: flex;
+    }
+    #chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    #chat-input button {
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- This is a simple website chat widget designed using HTML, CSS, and JavaScript. -->
+<!-- It simulates a chatbot focused on providing information about diabetes. -->
+<!-- This is not a full web application, but it can be embedded into a webpage. -->
+<!-- It is a front-end component that works in the browser without a server. -->
+
+<div id="chat-widget">
+  <div id="chat-header">🩺 Diabetes Chat</div>
+  <div id="chat-messages">
+    <div><strong>Bot:</strong> Hello! Let's talk about diabetes. How can I help you today?</div>
+  </div>
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Ask something about diabetes...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (message) {
+      const messages = document.getElementById("chat-messages");
+      const userMessage = document.createElement("div");
+      userMessage.innerHTML = `<strong>You:</strong> ${message}`;
+      messages.appendChild(userMessage);
+
+      const botMessage = document.createElement("div");
+      botMessage.innerHTML = `<strong>Bot:</strong> ${generateBotResponse(message)}`;
+      messages.appendChild(botMessage);
+
+      messages.scrollTop = messages.scrollHeight;
+      input.value = "";
+    }
+  }
+
+  function generateBotResponse(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes("what is diabetes")) {
+      return "Diabetes is a chronic condition where the body can't regulate blood sugar properly.";
+    } else if (msg.includes("symptoms")) {
+      return "Common symptoms of diabetes include increased thirst, frequent urination, and fatigue.";
+    } else if (msg.includes("types")) {
+      return "There are mainly two types: Type 1 (autoimmune) and Type 2 (often lifestyle-related).";
+    } else if (msg.includes("prevent")) {
+      return "Healthy eating, regular exercise, and maintaining a healthy weight can help prevent Type 2 diabetes.";
+    } else {
+      return "I'm here to help with questions about diabetes! Try asking about symptoms, types, or prevention.";
+    }
+  }
+</script>
+
+</body>
+</html>
